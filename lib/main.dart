@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'IMC Calculator'),
     );
   }
 }
@@ -50,22 +50,49 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
 
         title: Text(widget.title),
+        centerTitle: true,
       ),
       body: Center(
 
-        child: Column(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
 
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Calculadora de imc',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            const SizedBox(height: 16),
+            TextFormField(
+              decoration: const InputDecoration(
+                  labelText: ' Digite seu peso ',
+                hintText: 'Digite seu peso',
+                border: OutlineInputBorder (
+                  borderRadius: BorderRadius.all(Radius.circular(10.0))
+                )
+              ),
+
             ),
+            const SizedBox(height: 16),
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: ' Digite sua altura ',
+                  hintText: 'Digite sua altura',
+                  border: OutlineInputBorder (
+                      borderRadius: BorderRadius.all(Radius.circular(10.0))
+                  )
+              ),
+
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+                onPressed: (){
+                  print('cliquei');
+                },
+                child: const Text('Calcular'))
           ],
-        ),
+        ),)
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
